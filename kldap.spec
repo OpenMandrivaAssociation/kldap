@@ -18,9 +18,11 @@ License: GPL
 Group: System/Libraries
 BuildRequires: cmake
 BuildRequires: ninja
+BuildRequires: openldap-devel
 BuildRequires: cmake(KF5Completion)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
