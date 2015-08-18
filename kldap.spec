@@ -26,6 +26,7 @@ BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
+Obsoletes: %{mklibname kldap 4}
 
 %description
 KDE library for accessing LDAP directories
