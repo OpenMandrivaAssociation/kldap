@@ -1,4 +1,4 @@
 removed_sources:
   kldap-15.08.0.tar.xz: db8a03ce94545fd236cc1df41280e31c1a52ef35
 sources:
-  kldap-15.12.1.tar.xz: fd884a366d35a362ab87232d20e2c22c55929169
+  kldap-15.12.2.tar.xz: fc8baa172ce559afbbd23823ad4d67ed8fe41b63
