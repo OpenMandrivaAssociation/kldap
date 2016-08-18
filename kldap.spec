@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Ldap -d
 
 Name: kldap
-Version:	16.04.3
+Version:	16.08.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -23,6 +23,7 @@ BuildRequires: sasl-devel
 BuildRequires: cmake(KF5Completion)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5Mbox)
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
