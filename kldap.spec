@@ -34,14 +34,14 @@ BuildRequires: cmake(Qt5Test)
 Obsoletes: %{mklibname kldap 4}
 
 %description
-KDE library for accessing LDAP directories
+KDE library for accessing LDAP directories.
 
 %package -n %{libname}
 Summary: KDE library for accessing LDAP directories
 Group: System/Libraries
 
 %description -n %{libname}
-KDE library for accessing LDAP directories
+KDE library for accessing LDAP directories.
 
 %package -n %{devname}
 Summary: Development files for %{name}
@@ -60,6 +60,12 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
+
+%files
+%doc %{_docdir}/HTML/en/kioslave5/ldap/*
+%{_sysconfdir}/xdg/kldap.categories
+%{_libdir}/qt5/plugins/kf5/kio/ldap.so
+%{_datadir}/kservices5/*.protocol
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
