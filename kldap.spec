@@ -10,7 +10,7 @@ Version:	16.08.3
 %else
 %define ftpdir stable
 %endif
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for accessing LDAP directories
 URL: http://kde.org/
@@ -31,7 +31,6 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5Test)
-Obsoletes: %{mklibname kldap 4}
 
 %description
 KDE library for accessing LDAP directories.
