@@ -31,6 +31,9 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5Test)
+Conflicts: kio-ldap < 16.04.3-2
+Obsoletes: kio-ldap < %{EVRD}
+Provides: kio-ldap = %{EVRD}
 
 %description
 KDE library for accessing LDAP directories.
