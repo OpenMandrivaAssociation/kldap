@@ -3,14 +3,14 @@
 %define devname %mklibname KF5Ldap -d
 
 Name: kldap
-Version:	16.08.3
+Version:	16.12.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	3
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for accessing LDAP directories
 URL: http://kde.org/
@@ -67,6 +67,7 @@ Development files (Headers etc.) for %{name}.
 %files
 %doc %{_docdir}/HTML/en/kioslave5/ldap/*
 %{_sysconfdir}/xdg/kldap.categories
+%{_sysconfdir}/xdg/kldap.renamecategories
 %{_libdir}/qt5/plugins/kf5/kio/ldap.so
 %{_datadir}/kservices5/*.protocol
 
