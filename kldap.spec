@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Ldap -d
 
 Name: kldap
-Version:	17.03.80
+Version:	17.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -63,13 +63,27 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
+%find_lang kio_ldap
+%find_lang libkldap5
+cat *.lang >%{name}.lang
 
-%files
+%files -f %{name}.lang
 %doc %{_docdir}/HTML/en/kioslave5/ldap/*
 %{_sysconfdir}/xdg/kldap.categories
 %{_sysconfdir}/xdg/kldap.renamecategories
 %{_libdir}/qt5/plugins/kf5/kio/ldap.so
 %{_datadir}/kservices5/*.protocol
+%lang(ca) %{_docdir}/HTML/ca/kioslave5/ldap
+%lang(de) %{_docdir}/HTML/de/kioslave5/ldap
+%lang(es) %{_docdir}/HTML/es/kioslave5/ldap
+%lang(et) %{_docdir}/HTML/et/kioslave5/ldap
+%lang(it) %{_docdir}/HTML/it/kioslave5/ldap
+%lang(nl) %{_docdir}/HTML/nl/kioslave5/ldap
+%lang(pt_BR) %{_docdir}/HTML/pt_BR/kioslave5/ldap
+%lang(ru) %{_docdir}/HTML/ru/kioslave5/ldap
+%lang(sr) %{_docdir}/HTML/sr/kioslave5/ldap
+%lang(sv) %{_docdir}/HTML/sv/kioslave5/ldap
+%lang(uk) %{_docdir}/HTML/uk/kioslave5/ldap
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
