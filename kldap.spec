@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Ldap -d
 
 Name: kldap
-Version:	19.04.3
+Version:	19.07.80
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -66,8 +66,8 @@ Development files (Headers etc.) for %{name}.
 %find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/kldap.categories
-%{_sysconfdir}/xdg/kldap.renamecategories
+%{_datadir}/qlogging-categories5/kldap.categories
+%{_datadir}/qlogging-categories5/kldap.renamecategories
 %{_libdir}/qt5/plugins/kf5/kio/ldap.so
 %{_datadir}/kservices5/*.protocol
 
