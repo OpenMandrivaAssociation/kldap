@@ -3,7 +3,7 @@
 %define devname %mklibname KF5Ldap -d
 
 Name: kldap
-Version:	20.12.3
+Version:	21.03.80
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -32,6 +32,7 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5Test)
+BuildRequires: cmake(Qt5Keychain)
 Requires: akonadi-contacts
 Conflicts: kio-ldap < 3:16.04.3-2
 Obsoletes: kio-ldap < 3:16.04.3-2
