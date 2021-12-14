@@ -33,6 +33,9 @@ BuildRequires: cmake(Qt5Gui)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Keychain)
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 Requires: akonadi-contacts
 Conflicts: kio-ldap < 3:16.04.3-2
 Obsoletes: kio-ldap < 3:16.04.3-2
