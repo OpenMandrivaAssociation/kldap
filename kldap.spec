@@ -7,8 +7,8 @@
 %define wlibname %mklibname KPim6LdapWidgets
 %define wdevname %mklibname KPim6LdapWidgets -d
 
-Name: plasma6-kldap
-Version:	25.04.0
+Name: kldap
+Version:	25.04.1
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -46,7 +46,11 @@ BuildRequires: cmake(Qt6Keychain)
 # For QCH format docs
 BuildRequires: doxygen
 BuildRequires: qt6-qttools-assistant
-Requires: plasma6-akonadi-contacts
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+Requires: akonadi-contacts
+# Renamed 2025-05-25 after 6.0
+%rename plasma6-kldap
 
 %description
 KDE library for accessing LDAP directories.
@@ -54,6 +58,9 @@ KDE library for accessing LDAP directories.
 %package -n %{libname}
 Summary: KDE library for accessing LDAP directories
 Group: System/Libraries
+# Not really a 1:1 replacement, but we need to get rid of old cruft somehow...
+# Done 2025-05-25 after 6.0
+Obsoletes: %{mklibname KF5Ldap 5}
 
 %description -n %{libname}
 KDE library for accessing LDAP directories.
@@ -62,6 +69,9 @@ KDE library for accessing LDAP directories.
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+# Not really a 1:1 replacement, but we need to get rid of old cruft somehow...
+# Done 2025-05-25 after 6.0
+Obsoletes: %{mklibname -d KF5Ldap}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
@@ -81,19 +91,6 @@ Requires: %{devname} = %{EVRD}
 
 %description -n %{wdevname}
 Development files (Headers etc.) for %{name} Widgets.
-
-%prep
-%autosetup -p1 -n kldap-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang %{name} --all-name --with-html
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kldap.categories
