@@ -48,7 +48,6 @@ BuildRequires: doxygen
 BuildRequires: qt6-qttools-assistant
 BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
-Requires: akonadi-contacts
 # Renamed 2025-05-25 after 6.0
 %rename plasma6-kldap
 
